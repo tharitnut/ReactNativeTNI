@@ -1,21 +1,37 @@
-import { StyleSheet, Text, View } from "react-native";
-import React from "react";
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
 
-type AppHeaderProps = {
-  title: string;
-  year?: number; //optional
-};
+type AppHeaderProp = {
+    title:string
+    title2:string
+}
 
-const AppHeader = ({ title, year }: AppHeaderProps): React.JSX.Element => {
+const AppHeader = ({title,title2}:AppHeaderProp): React.JSX.Element => {
   return (
-    <View>
-      <Text>
-        {title} {year && year+543}
-      </Text>
+    <View style={styles.header}>
+      <Text style={styles.headerText}>{title}</Text>
+      <Text style={styles.subtitleText}>{title2}</Text>
     </View>
-  );
-};
+  )
+}
 
-export default AppHeader;
+export default AppHeader
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    header: {
+    backgroundColor: '#AEC6CF',
+    padding: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    },
+    headerText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#fff',
+    },
+    subtitleText: {
+    fontSize: 16,
+    color: '#fff',
+    },
+    });
+  
