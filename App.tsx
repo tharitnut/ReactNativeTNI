@@ -14,7 +14,7 @@ export default function App(): React.JSX.Element {
   return (
     <View style={styles.container}>
       <AppHeader title = "Input your fullname" title2 = "Message from App.tsx"/>
-      <Content title="Message from App.tsx"/>
+      <Content title="Message from App.tsx" name ="Tharit Ruangphungluang"/>
       <AppFooter title = "Thai-Nichi Institute of Technology"/>
     </View>
   );

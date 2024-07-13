@@ -3,19 +3,17 @@ import React from 'react'
 
 type AppContentProp = {
     title:string
+    name:string
 }
 
-const onClickMe = () => {
-    Alert.alert("Hello", "Input your fullname");
-  };
+const Content = ({title,name}:AppContentProp): React.JSX.Element => {
 
-const Content = ({title}:AppContentProp): React.JSX.Element => {
   return (
     <View style={styles.content}>
       <Text style={styles.text}>{title}</Text>
       <Button
         title="Click Me"
-        onPress={onClickMe}
+        onPress={()=> Alert.alert("Hello", name)}
         color="blue"
       />
     </View>
