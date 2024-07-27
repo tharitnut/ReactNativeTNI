@@ -12,6 +12,8 @@ export default StyleSheet.create({
     width:100,
     height:100,
     marginRight:20,
+    borderColor:"#191970",
+    borderWidth:2,
   },
   profileContainer: {
     flexDirection:"row",
