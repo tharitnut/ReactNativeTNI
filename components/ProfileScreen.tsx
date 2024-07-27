@@ -9,10 +9,10 @@ const ProfileScreen = (): React.JSX.Element => {
   const [img, setImg] = useState(proflieImage1);
 
   const handleChangeName = () => {
-    setName("New Name");
+    setName(name == "Tharit Ruangphungluang"?"Nut":"Tharit Ruangphungluang");
   };
   const handleChangeImage = () => {
-    setImg(profileImage2);
+    setImg(img == proflieImage1?profileImage2:proflieImage1);
   };
 
   return (
@@ -22,7 +22,7 @@ const ProfileScreen = (): React.JSX.Element => {
         <View>
           <Text style={styles.profileName}>{name}</Text>
           <Button title="Change Name" onPress={handleChangeName}></Button>
-          <Text>{"\n"}</Text>
+          <Text style={{fontSize:4}}>{"\n"}</Text>
           <Button title="Change Image" onPress={handleChangeImage}></Button>
         </View>
       </View>
