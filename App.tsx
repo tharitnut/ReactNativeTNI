@@ -21,10 +21,15 @@ function App(): React.JSX.Element {
     console.log(`Fullname has change to : ${fullname}`);
   }, [fullname]); //run when fullname changes
 
+  const handleButtonClick=()=>{
+    Alert.alert("Hello", `Fullname has change to : ${fullname}`);
+  }
+
   return (
     <View style={styles.container}>
       <AppHeader fullname={fullname} message={message} />
-      <Content message={message} fullname={fullname} />
+      {/* <Content message={message} fullname={fullname} /> */}
+      <Content message={message} onButtonClick = {handleButtonClick}/>
       <AppFooter footerMessage={footerMessage} />
       <View style = {{alignItems:"center"}}>
         <TextInput
