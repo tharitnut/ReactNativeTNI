@@ -1,35 +1,27 @@
-import { StyleSheet, Text, View , Button ,Alert } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View, Button, Alert } from "react-native";
+import React from "react";
+import { stylePractice } from "../styles/styles";
 
 type AppContentProp = {
-    title:string
-    name:string
-}
+  message: string;
+  fullname: string;
+};
 
-const Content = ({title,name}:AppContentProp): React.JSX.Element => {
+const Content = ({ message, fullname }: AppContentProp): React.JSX.Element => {
+  const [displayFullname, setDisplayFullname] = React.useState("");
+
+  const haddleButtonClick = () => {
+    setDisplayFullname(fullname);
+    Alert.alert("Hello", `Fullname has change to : ${fullname}`);
+  };
 
   return (
-    <View style={styles.content}>
-      <Text style={styles.text}>{title}</Text>
-      <Button
-        title="Click Me"
-        onPress={()=> Alert.alert("Hello", name)}
-        color="blue"
-      />
+    <View style={stylePractice.content}>
+      <Text style={stylePractice.text}>{message}</Text>
+      <Text style={stylePractice.text}>{displayFullname}</Text>
+      <Button title="Click Me" onPress={haddleButtonClick} color="blue" />
     </View>
-  )
-}
+  );
+};
 
-export default Content
-
-const styles = StyleSheet.create({
-    content: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    },
-    text: {
-    fontSize: 18,
-    marginBottom: 20,
-    },
-    });
+export default Content;
