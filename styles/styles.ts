@@ -1,10 +1,9 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+const stylesProfile = StyleSheet.create({
   container: {
     alignItems: "center",
     padding: 20,
-    backgroundColor: "#e6e6fa",
   },
   profileImage: {
     borderRadius: 50,
@@ -20,8 +19,8 @@ const styles = StyleSheet.create({
     marginTop: 30,
     width: "100%",
     padding: 20,
-    borderRadius: 30,
-    backgroundColor: "#f5fffa",
+    borderRadius: 10,
+    backgroundColor: "#ffffff",
     elevation: 5,
   },
   profileName: {
@@ -84,4 +83,25 @@ const stylePractice = StyleSheet.create({
   },
 });
 
-export { styles, stylePractice };
+const stylesLogin = StyleSheet.create({ 
+  container: { 
+    justifyContent: "center", 
+    padding: 20, 
+    marginTop: 50, 
+    backgroundColor: '#ffffff', // ตงคาสพนหลงเปนสขาว 
+    borderRadius: 10, // เพมความมนใหกบขอบคอนเทนเนอร 
+    elevation: 3, // เพมเงาใหกบคอนเทนเนอร (เฉพาะ Android) 
+    width: '100%', // ตงความกวางของ container ให้เต็มหน้าจอ 
+  }, 
+  input: { 
+    height: 45, // เพมความสงของ TextInput 
+    borderColor: "gray", // เปลยนสขอบเปนสเทาออน 
+    borderWidth: 1,  
+    borderRadius: 8, // เพมความมนใหกบขอบ TextInput 
+    marginBottom: 15, // เพมระยะหางดานลางระหวาง TextInput 
+    paddingHorizontal: 15, // เพมระยะหางภายใน TextInput 
+    backgroundColor: "#f9f9f9", // ตงคาสพนหลงของ TextInput 
+  },  
+}); 
+
+export { stylesProfile, stylePractice,stylesLogin };
