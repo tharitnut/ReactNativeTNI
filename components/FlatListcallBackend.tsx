@@ -1,4 +1,10 @@
-import { ActivityIndicator, FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 
 interface User {
@@ -27,25 +33,24 @@ const FlatListCallBackend = () => {
   }, []);
 
   //_renderItem for FlatList
-  const _renderItem = ({item}:{item:User})=>(
+  const _renderItem = ({ item }: { item: User }) => (
     <View style={styles.item}>
-        <Text style={styles.name}>{item.name}</Text>
-        <Text style={styles.email}>{item.email}</Text>
+      <Text style={styles.name}>{item.name}</Text>
+      <Text style={styles.email}>{item.email}</Text>
     </View>
-  )
+  );
   return (
     <View style={styles.container}>
-      {loading?( //ถ้ายังโหลดข้อมูลอยู่จะแสดง ActivityIndicator
-        <ActivityIndicator size="large" color="red"/>
-      ):( //ถ้าข้อมูลถูกโหลดมาแล้วจะแสดง FlatList
+      {loading ? ( //ถ้ายังโหลดข้อมูลอยู่จะแสดง ActivityIndicator
+        <ActivityIndicator size="large" color="red" />
+      ) : (
+        //ถ้าข้อมูลถูกโหลดมาแล้วจะแสดง FlatList
         <FlatList
-        data = {data}
-        renderItem = {_renderItem}
-        keyExtractor={item=>item.id.toString()}
+          data={data}
+          renderItem={_renderItem}
+          keyExtractor={(item) => item.id.toString()}
         />
-      )
-
-      }
+      )}
     </View>
   );
 };
