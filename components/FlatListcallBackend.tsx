@@ -13,7 +13,7 @@ interface User {
   email: string;
 }
 
-const FlatListCallBackend = () => {
+const FlatListCallBackend = (): React.JSX.Element => {
   //state for user & load
   const [data, setData] = useState<User[]>([]); //calls form backend
   const [loading, setLoading] = useState(true);

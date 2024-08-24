@@ -15,7 +15,7 @@ interface News {
   url:string,
 }
 
-const NewsApp = () => {
+const NewsApp = (): React.JSX.Element => {
   //state for user & load
   const [news, setNews] = useState<News[]>([]); //calls form backend
   const [loading, setLoading] = useState(true);
