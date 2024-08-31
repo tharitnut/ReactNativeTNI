@@ -13,10 +13,33 @@ function App(): React.JSX.Element {
 
   return (
     <NavigationContainer>
-      <Homestack.Navigator initialRouteName="Home">
-        <Homestack.Screen name="Home" component={HomeScreen} />
-        <Homestack.Screen name="About" component={AboutScreen} />
-        <Homestack.Screen name="CreatePost" component={CreatePostScreen} />
+      <Homestack.Navigator
+        initialRouteName="Home"
+        screenOptions={{ //Global
+          headerStyle: { backgroundColor: "#20b2aa" },
+          headerTintColor: "white",
+          headerTitleStyle: { fontWeight: "bold" },
+          //headerTitleAlign: "center",
+        }}
+      >
+        <Homestack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: "หน้าหลัก" }}
+        />
+        <Homestack.Screen
+          name="About"
+          component={AboutScreen}
+          options={{ //Screen
+            title: "เกี่ยวกับเรา",
+            headerTitleAlign: "center",
+          }}
+        />
+        <Homestack.Screen
+          name="CreatePost"
+          component={CreatePostScreen}
+          options={{ title: "Create Post" }}
+        />
       </Homestack.Navigator>
     </NavigationContainer>
   );
