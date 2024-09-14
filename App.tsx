@@ -10,6 +10,7 @@ import AboutScreen from "./screens/AboutScreen";
 import CreatePostScreen from "./screens/CreatePostScreen";
 import MenuScreen from "./screens/MenuScreen";
 import ProductScreen from "./screens/ProductScreen";
+import DetailScreen from "./screens/DetailScreen";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -61,10 +62,8 @@ function ProductStackScreen() {
         headerTitleStyle: { fontWeight: "bold" },
       }}
     >
-      <ProductStack.Screen
-        name="Products"
-        component={ProductScreen}
-      />
+      <ProductStack.Screen name="Products" component={ProductScreen} />
+      <ProductStack.Screen name="Details" component={DetailScreen} />
     </ProductStack.Navigator>
   );
 }
