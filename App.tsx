@@ -55,7 +55,7 @@ function HomeStackScreen() {
 function ProductStackScreen() {
   return (
     <ProductStack.Navigator
-      initialRouteName="Home"
+      initialRouteName="Products"
       screenOptions={{
         //Global
         headerTitleStyle: { fontWeight: "bold" },
