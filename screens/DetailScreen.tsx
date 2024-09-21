@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 }, //กำหนดตำแหน่งของเงาที่แสดงผล
     shadowOpacity: 0.25, //กำหนดระดับความโปร่งแสงของเงา
     shadowRadius: 3.84, //กำหนดรัศมีของการกระจายตัวของเงา
-    opacity: 0.75, // ความโปร่งใสของภาพ , ค่าน้อยจะโปร่งใสมาก
+    opacity: 0.9, // ความโปร่งใสของภาพ , ค่าน้อยจะโปร่งใสมาก
   },
   captionStyle: {
     fontSize: 14,
