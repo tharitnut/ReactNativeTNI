@@ -20,7 +20,7 @@ const MenuScreen = ({ navigation }: any): React.JSX.Element => {
       <>
         <ListItem
           onPress={() => {
-            navigation.navigate("HomeStack");
+            navigation.navigate("Home");
           }}
         >
           <Icon name="home" type="material-community" color="grey" />
