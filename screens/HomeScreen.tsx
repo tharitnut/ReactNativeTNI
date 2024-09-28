@@ -1,4 +1,4 @@
-import { View, Text, Button, StyleSheet, Alert } from "react-native";
+import { View, Button, StyleSheet } from "react-native";
 import React, { useLayoutEffect } from "react";
 import MaterialIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import { useNavigation } from "@react-navigation/native";
@@ -9,7 +9,14 @@ import {
   Item,
 } from "react-navigation-header-buttons";
 
-const MaterialHeaderButton = (props: any) =>(
+import { Text } from "@rneui/base"; //use Text from react-native base
+
+import { useAppDispatch, useAppSelector } from "../redux-toolkit/hooks";
+import { selectAuthState, setIsLoading, setIsLogin } from "../auth/auth-slice";
+
+import { logout } from "../services/auth-service";
+
+const MaterialHeaderButton = (props: any) => (
   // the `props` here come from <Item ... />
   // you may access them and pass something else to `HeaderButton` if you like
   <HeaderButton IconComponent={MaterialIcon} iconSize={23} {...props} />
@@ -17,26 +24,35 @@ const MaterialHeaderButton = (props: any) =>(
 
 const HomeScreen = (): React.JSX.Element => {
   const navigation = useNavigation<any>();
+  const dispatch = useAppDispatch();
+  const { profile } = useAppSelector(selectAuthState);
 
   useLayoutEffect(() => {
     navigation.setOptions({
       title: "หน้าหลัก",
       headerTitle: () => <AppLogo />,
       headerTitleAlign: "center",
-      headerLeft:()=>(
+      headerLeft: () => (
         <HeaderButtons HeaderButtonComponent={MaterialHeaderButton}>
-          <Item title="menu" iconName="menu"
-          onPress={()=>{
-            navigation.openDrawer()
-          }}/>
+          <Item
+            title="menu"
+            iconName="menu"
+            onPress={() => {
+              navigation.openDrawer();
+            }}
+          />
         </HeaderButtons>
       ),
-      headerRight:()=>(
+      headerRight: () => (
         <HeaderButtons HeaderButtonComponent={MaterialHeaderButton}>
-          <Item title="logout" iconName="logout"
-          onPress={()=>{
-            Alert.alert('Log out','Close Menu')
-          }}/>
+          <Item
+            title="logout"
+            iconName="logout"
+            onPress={async () => {
+              await logout();
+              dispatch(setIsLogin(false));
+            }}
+          />
         </HeaderButtons>
       ),
     });
@@ -52,7 +68,15 @@ const HomeScreen = (): React.JSX.Element => {
   return (
     <View style={styles.container}>
       <MaterialIcon name="home" size={40} color="pink" />
-      <Text style={styles.header}>HomeScreen</Text>
+      {profile?(
+        <>
+        <Text h3>Welcone {profile.name}</Text>
+        <Text>
+          Email: {profile.email} ID: {profile.id} Role: {profile.role}
+        </Text>
+        </>
+      ):null
+      }
       <Button title="About Us" onPress={gotoAbout} />
     </View>
   );
